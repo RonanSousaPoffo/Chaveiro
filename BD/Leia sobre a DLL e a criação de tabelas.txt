@@ -1,0 +1,3 @@
+Colar a dll na pasta C:\Windows\SysWOW64
+
+acessar a criação de tabelas no local localhost/phpmyadmin/ com o xampp ativo
