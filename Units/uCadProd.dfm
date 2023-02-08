@@ -3,7 +3,7 @@ object frCadProd: TfrCadProd
   Top = 0
   Caption = 'Cadastro de Produtos'
   ClientHeight = 291
-  ClientWidth = 332
+  ClientWidth = 303
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -166,5 +166,19 @@ object frCadProd: TfrCadProd
     TabOrder = 5
     Visible = False
     OnClick = btDeletarClick
+  end
+  object Button1: TButton
+    Left = 256
+    Top = 74
+    Width = 39
+    Height = 25
+    Hint = 
+      'Gerar um novo c'#243'digo. Essa op'#231#227'o ir'#225' gerar um c'#243'digo que n'#227'o est' +
+      #225' sendo utilizado.'
+    Caption = 'Gerar'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    OnClick = Button1Click
   end
 end

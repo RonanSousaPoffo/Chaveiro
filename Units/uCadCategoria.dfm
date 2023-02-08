@@ -2,7 +2,7 @@ object frCadCategoria: TfrCadCategoria
   Left = 0
   Top = 0
   Caption = 'Cadastro de Categoria'
-  ClientHeight = 102
+  ClientHeight = 136
   ClientWidth = 348
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -47,7 +47,7 @@ object frCadCategoria: TfrCadCategoria
     TabOrder = 1
   end
   object btCadCategoria: TButton
-    Left = 144
+    Left = 136
     Top = 65
     Width = 81
     Height = 29
@@ -69,5 +69,35 @@ object frCadCategoria: TfrCadCategoria
     TabOrder = 0
     OnChange = edCodigoChange
     OnKeyPress = edCodigoKeyPress
+  end
+  object btDeletar: TButton
+    Left = 136
+    Top = 100
+    Width = 81
+    Height = 29
+    Caption = 'DELETAR'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+    Visible = False
+    OnClick = btDeletarClick
+  end
+  object btGerarCodigo: TButton
+    Left = 111
+    Top = 4
+    Width = 39
+    Height = 25
+    Hint = 
+      'Gerar um novo c'#243'digo. Essa op'#231#227'o ir'#225' gerar um c'#243'digo que n'#227'o est' +
+      #225' sendo utilizado.'
+    Caption = 'Gerar'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    OnClick = btGerarCodigoClick
   end
 end

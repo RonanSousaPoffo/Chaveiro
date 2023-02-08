@@ -19,11 +19,13 @@ type
     lbCodigo: TLabel;
     edCodigo: TEdit;
     btDeletar: TButton;
+    Button1: TButton;
     procedure btCadProdutoClick(Sender: TObject);
     procedure edCodigoChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure edCodigoKeyPress(Sender: TObject; var Key: Char);
     procedure btDeletarClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     wNome : String;
@@ -84,6 +86,23 @@ begin
              edCodigo.Text                :='';
            end;
      end;
+end;
+
+procedure TfrCadProd.Button1Click(Sender: TObject);
+var
+  wGeraNovoCodigo: integer;
+begin
+
+  DMCHAVEIRO.tbCadProd.First;
+  wGeraNovoCodigo:= 0;
+  DMCHAVEIRO.tbCadProd.IndexFieldNames:='BDIDPROD';
+  while DMCHAVEIRO.tbCadProd.FindKey([wGeraNovoCodigo]) do
+     begin
+       DMCHAVEIRO.tbCadProd.Next;
+       wGeraNovoCodigo:= wGeraNovoCodigo+1;
+     end;
+  edCodigo.Text:=IntToStr(wGeraNovoCodigo);
+
 end;
 
 procedure TfrCadProd.edCodigoChange(Sender: TObject);

@@ -13,9 +13,13 @@ type
     btCadCategoria: TButton;
     Label1: TLabel;
     edCodigo: TEdit;
+    btDeletar: TButton;
+    btGerarCodigo: TButton;
     procedure btCadCategoriaClick(Sender: TObject);
     procedure edCodigoKeyPress(Sender: TObject; var Key: Char);
     procedure edCodigoChange(Sender: TObject);
+    procedure btDeletarClick(Sender: TObject);
+    procedure btGerarCodigoClick(Sender: TObject);
   private
     { Private declarations }
     uUtil : tUtil;
@@ -63,6 +67,35 @@ begin
 
 end;
 
+procedure TfrCadCategoria.btDeletarClick(Sender: TObject);
+begin
+ DMCHAVEIRO.tbCadCategoria.IndexFieldNames:='IDCATEGORIA';
+  if MessageDlg('Deseja realmente excluir a categoria '+UpperCase(edCategoria.Text)+' ?', mtConfirmation, [mbYes, mbNo],0) = mrYes then
+  begin
+    if DMCHAVEIRO.tbCadCategoria.FindKey([edCodigo.Text]) then
+       begin
+         DMCHAVEIRO.tbCadCategoria.Delete;
+         edCategoria.Text:='';
+       end
+  end;
+end;
+
+procedure TfrCadCategoria.btGerarCodigoClick(Sender: TObject);
+var
+  wGeraNovoCodigo:integer;
+begin
+  DMCHAVEIRO.tbCadCategoria.First;
+  wGeraNovoCodigo:= 0;
+  DMCHAVEIRO.tbCadCategoria.IndexFieldNames:='IDCATEGORIA';
+  while DMCHAVEIRO.tbCadCategoria.FindKey([wGeraNovoCodigo]) do
+     begin
+       DMCHAVEIRO.tbCadCategoria.Next;
+       wGeraNovoCodigo:=wGeraNovoCodigo+1;
+     end;
+  edCodigo.Text:=IntToStr(wGeraNovoCodigo);
+
+end;
+
 procedure TfrCadCategoria.edCodigoChange(Sender: TObject);
 begin
   DMCHAVEIRO.tbCadCategoria.IndexFieldNames:='IDCATEGORIA';
@@ -70,11 +103,13 @@ begin
      begin
        edCategoria.Text:=  DMCHAVEIRO.tbCadCategoriabdNomeCategoria.AsString;
        btCadCategoria.Caption:= 'EDITAR';
+       btDeletar.Visible:=true;
      end
   else
      begin
        btCadCategoria.Caption:='CADASTRAR';
        edCategoria.Text:='';
+       btDeletar.Visible:=False;
      end;
 end;
 
