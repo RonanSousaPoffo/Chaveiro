@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus,uCadProd,uCadCategoria,uEstoque,
-  Vcl.ExtCtrls, Vcl.Imaging.pngimage;
+  Vcl.ExtCtrls, Vcl.Imaging.pngimage,uDMChaveiro;
 
 type
   TfrMenuPrincipal = class(TForm)
@@ -49,8 +49,26 @@ begin
 end;
 
 procedure TfrMenuPrincipal.FormCreate(Sender: TObject);
+var
+  wProdutosNotificarEstoque:String;
+  wNotificar :Boolean;
 begin
    uCadProd:=TfrCadProd.Create(Self);
+   DMCHAVEIRO.tbCadProd.First;
+   wNotificar:=false;
+   wProdutosNotificarEstoque:='Necessário realizar compra dos seguintes produtos:'+#13;
+   while not DMCHAVEIRO.tbCadProd.Eof do
+      begin
+        if  (DMCHAVEIRO.tbCadProdBDNOTIFICARESTOQUE.AsBoolean) and (DMCHAVEIRO.tbCadProdBDQUANTIDADEPROD.AsInteger <= DMCHAVEIRO.tbCadProdBDQUANTIDADENOTIFICAR.AsInteger) then
+           begin
+             wProdutosNotificarEstoque:=wProdutosNotificarEstoque +#13+ 'Quantidade em estoque: '+IntToStr(DMCHAVEIRO.tbCadProdBDQUANTIDADEPROD.AsInteger)+'  Produto: '+ DMCHAVEIRO.tbCadProdBDNOMEPROD.AsString;
+             wNotificar:=true;
+           end;
+
+           DMCHAVEIRO.tbCadProd.Next;
+      end;
+   if wNotificar then
+      ShowMessage(wProdutosNotificarEstoque);
 end;
 
 procedure TfrMenuPrincipal.Produtos1Click(Sender: TObject);

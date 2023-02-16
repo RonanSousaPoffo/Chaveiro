@@ -24,6 +24,8 @@ type
     tbCadProdBDCATEGORIAPROD: TStringField;
     tbCadProdBDVALORPROD: TSingleField;
     tbCadProdBDQUANTIDADEPROD: TIntegerField;
+    tbCadProdBDQUANTIDADENOTIFICAR: TIntegerField;
+    tbCadProdBDNOTIFICARESTOQUE: TBooleanField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

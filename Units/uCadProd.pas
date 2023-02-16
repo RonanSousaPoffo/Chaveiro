@@ -164,9 +164,12 @@ begin
        DMCHAVEIRO.tbCadProdBDIDPROD.AsInteger          := StrToInt(edCodigo.Text);
      end;
 
-  DMCHAVEIRO.tbCadProdBDNOMEPROD.AsString         := edNomeProduto.Text;
-  DMCHAVEIRO.tbCadProdBDCATEGORIAPROD.AsString    := cbCategoriaProduto.Text;
-  DMCHAVEIRO.tbCadProdBDVALORPROD.AsCurrency      := StrToCurr(edValorProduto.Text);
+  DMCHAVEIRO.tbCadProdBDNOMEPROD.AsString                   := edNomeProduto.Text;
+  DMCHAVEIRO.tbCadProdBDCATEGORIAPROD.AsString              := cbCategoriaProduto.Text;
+  DMCHAVEIRO.tbCadProdBDVALORPROD.AsCurrency                := StrToCurr(edValorProduto.Text);
+  DMCHAVEIRO.tbCadProdBDQUANTIDADENOTIFICAR.AsInteger       := 0;
+  DMCHAVEIRO.tbCadProdBDQUANTIDADEPROD.AsInteger            := 0;
+  DMCHAVEIRO.tbCadProdBDNOTIFICARESTOQUE.AsBoolean          := False;
   DMCHAVEIRO.tbCadProd.Post;
   DMCHAVEIRO.tbCadProd.Refresh;
 

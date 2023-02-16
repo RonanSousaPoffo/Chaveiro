@@ -47,6 +47,16 @@ object DMCHAVEIRO: TDMCHAVEIRO
       FieldName = 'BDQUANTIDADEPROD'
       Origin = 'BDQUANTIDADEPROD'
     end
+    object tbCadProdBDQUANTIDADENOTIFICAR: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'BDQUANTIDADENOTIFICAR'
+      Origin = 'BDQUANTIDADENOTIFICAR'
+    end
+    object tbCadProdBDNOTIFICARESTOQUE: TBooleanField
+      FieldName = 'BDNOTIFICARESTOQUE'
+      Origin = 'BDNOTIFICARESTOQUE'
+      Required = True
+    end
   end
   object dsTbCadProd: TDataSource
     DataSet = tbCadProd

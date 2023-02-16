@@ -171,7 +171,7 @@ object frCadProd: TfrCadProd
     Left = 256
     Top = 74
     Width = 39
-    Height = 25
+    Height = 24
     Hint = 
       'Gerar um novo c'#243'digo. Essa op'#231#227'o ir'#225' gerar um c'#243'digo que n'#227'o est' +
       #225' sendo utilizado.'
