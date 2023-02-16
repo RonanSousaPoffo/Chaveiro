@@ -20,7 +20,7 @@ object frEstoque: TfrEstoque
     Top = -1
     Width = 713
     Height = 537
-    ActivePage = tabEstoque
+    ActivePage = tabConfig
     TabOrder = 0
     object tabEstoque: TTabSheet
       Caption = 'Estoque'
@@ -301,6 +301,11 @@ object frEstoque: TfrEstoque
         Top = 65
         Width = 40
         Height = 21
+        Hint = 
+          'Definir qual a quantidade de produto no estoque para o sistema s' +
+          'aber quando deve notificar'
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
       end
       object btDefinir: TButton
